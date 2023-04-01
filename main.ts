@@ -1,13 +1,5 @@
 import { Editor, MarkdownView, Plugin } from 'obsidian';
 
-interface FantasyNamePluginSettings {
-	mySetting: string;
-}
-
-const DEFAULT_SETTINGS: FantasyNamePluginSettings = {
-	mySetting: 'default'
-}
-
 const prefixes = "Ash, Bane, Blaze, Bolt, Dawn, Dusk, Ember, Frost, Gale, Gloom, Haze, Blaze, Mist, Moon, Night, Rain, Shade, Shine, Sky, Smoke, Snow, Storm, Sun, Swift, Thorn, Tide, Vex, Wind, Wisp, Abyss, Arc, Art, Brave, Brook, Chaos, Cliff, Dark, Death, Dream, Edge, Fear, Flame, Forest, Fury, Ghost, Gold, Hill, Ice, Iron, Jewel, Knight, Lake, Light, Misty, Ocean, Rage, River, Shadow, Silver, Sky, Stone, Thunder, Valley, Wolf, Aqua, Aurora, Blaze, Bronze, Canyon, Comet, Crimson, Crystal, Cyclone, Diamond, Dragon, Echo, Eclipse, Enigma, Flame, Flare, Forest, Fossil, Garnet, Granite, Gravity, Hawk, Hurricane, Hydra, Indigo, Inferno, Ivory, Jasper, Jester, Justice, Lava, Legacy, Lightning, Lumin, Magenta, Magnet, Marvel, Maze, Meteor, Midnight, Mirage, Mistral, Nebula, Nightfall, Oasis, Obsidian, Onyx, Opal, Oracle, Ozone, Panther, Paradise, Paragon, Phoenix, Plasma, Platinum, Prism, Pulse, Pyrite, Quartz, Rainbow, Raven, Regal, River, Ruby, Rust, Sapphire, Scarlet, Shadow, Silver, Solar, Spark, Sphinx, Spectrum, Sphinx, Spice, Star, Stealth, Steel, Stone, Suede, Surge, Swift, Tangerine, Tempest, Thistle, Thunderbolt, Tidal, Titan, Tundra, Twilight, Typhoon, Vandal, Vector, Velvet, Velocity, Venture, Vortex, Waterfall, Wildfire, Willow, Winter, Wraith, Xenon, Xylophone, Yellow, Zenith, Zephyr".split(/,\s*/)
 const suffixes = "Blade, Bane, Busrt, Claw, Dawn, Dusk, Fang, Flame, Frost, Gale, Gloom, Glow, Haze, Heart, Hunt, Hunter, Light, Moon, Night, Rain, Shade, Shine, Sky, Smoke, Snow, Spark, Spirit, Storm, Sun, Surge, Swift, Thorn, Tide, Wing, Wind, Angel, Arrow, Bolt, Claw, Crown, Crystal, Dagger, Dragon, Fang, Feather, Flame, Flower, Heart, Hunter, Justice, Light, Mark, Moon, Queen, Rain, Shield, Silver, Song, Spark, Star, Steel, Stone, Storm, Sword, Thief, Thorn, Thunder, Wolf, Amber, Ash, Aurora, Blossom, Bolt, Burst, Canyon, Chill, Circle, Claw, Cloud, Crest, Crystal, Daisy, Dream, Edge, Ember, Enigma, Essence, Fang, Fern, Flame, Flare, Flora, Flower, Frost, Ghost, Gleam, Glory, Heart, Haze, Hunter, Hurricane, Ice, Ivory, Jewel, Lance, Leaf, Lightning, Lily, Luster, Maelstrom, Meadow, Mist, Nebula, Ocean, Opal, Panther, Peak, Pearl, Pebble, Phoenix, Quake, Quest, Quill, Radiance, Raven, Ray, Reef, Ripple, Roar, Rose, Sabre, Sapphire, Serpent, Shadow, Shard, Silver, Sinew, Sky, Slate, Snowflake, Sparkle, Sphere, Spirit, Star, Stone, Storm, Stream, Swirl, Tidal, Tornado, Trail, Tranquility, Tremor, Trinity, Tusk, Twilight, Unity, Veil, Vengeance, Vine, Vortex, Wave, Whirl, Wildflower, Willow, Windchaser, Winter, Wish, Wonder, Wood, Wyrm, Zenith, Zephyr, Zinc".toLowerCase().split(/,\s*/)
 
@@ -44,16 +36,12 @@ function generateName(namein: string){
 }
 
 export default class FantasyNamePlugin extends Plugin {
-	settings: FantasyNamePluginSettings;
-	
-	
 	
 	async onload() {
-		await this.loadSettings();
 		
 		// This adds an editor command that can perform some operation on the current editor instance
 		this.addCommand({
-			id: 'sample-editor-command',
+			id: 'fantasy-name-gen-generate-name',
 			name: 'Generate a name',
 			editorCallback: (editor: Editor, view: MarkdownView) => {		
 				let name = generateName(editor.getSelection());
@@ -83,13 +71,5 @@ export default class FantasyNamePlugin extends Plugin {
 	
 	onunload() {
 		
-	}
-	
-	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
-	}
-	
-	async saveSettings() {
-		await this.saveData(this.settings);
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"id": "fantasy-name-gen",
 	"name": "Fantasy Name Generator",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "This plugin generates fantasy names for use in D&D.",
+	"description": "Generate fantasy names for use in D&D.",
 	"author": "Owen Winkler",
 	"authorUrl": "https://owenw.com",
 	"isDesktopOnly": false
