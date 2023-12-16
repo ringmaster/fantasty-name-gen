@@ -1,10 +1,10 @@
 {
-	"id": "fantasy-name-gen",
-	"name": "Fantasy Name Generator",
-	"version": "1.0.1",
-	"minAppVersion": "0.15.0",
-	"description": "Generate fantasy names for use in D&D.",
-	"author": "Owen Winkler",
-	"authorUrl": "https://owenw.com",
-	"isDesktopOnly": false
+    "id": "fantasy-name-gen",
+    "name": "Fantasy Name Generator",
+    "version": "1.0.6",
+    "minAppVersion": "0.15.0",
+    "description": "Generate fantasy names for use in D&D.",
+    "author": "Owen Winkler",
+    "authorUrl": "https://owenw.com",
+    "isDesktopOnly": false
 }
